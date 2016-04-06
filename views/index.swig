@@ -1,98 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% set project_title = "SassDoc" %}
+
+    {% if package.name %}
+      {% set project_title = (package.name|capitalize) %}
+    {% endif %}
+
+    {% if package.title %}
+      {% set project_title = package.title %}
+    {% endif %}
+
     <head>
         <meta charset="utf-8" />
-        <title>Your SassDoc Theme</title>
+        <title>SassDoc for {{ project_title }}{% if package.version %} — v{{ package.version }}{% endif %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="SassDoc documentation for {{ project_title }}{% if package.version %} — v{{ package.version }}{% endif %}">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700,400italic" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="assets/css/main.css" />
-
-        {##
-         # Feel free to add more meta or stylesheets. It's up to you.
-         #}
+        <!-- Open Graph tags -->
+        <meta property="og:title" content="{{ project_title }} — SassDoc" />
+        <meta property="og:type" content="website" />
+        {% if package.description %}
+          <meta property="og:description" content="{{ package.description | safe }}" />
+        {% else %}
+          <meta property="og:description" content="Release the docs!" />
+        {% endif %}
+        <link href="{{ shortcutIcon.url }}" rel="shortcut icon">
     </head>
 
     <body>
+      <a href="#toc" class="skip">Skip to table of content</a>
+      <a href="#content" class="skip">Skip to content</a>
 
-    {##
-     # You can access any variable you set in your configuration file from the `view` object.
-     # Basically your configuration file is passed to the view as the `view` object.
-     #}
-    {{ view.test_variable }}
+      {# Include header #}
+      {% include "/includes/partials/header.html.swig" %}
 
-    {##
-     # Data comes with a `byGroupAndType` key which contains the data tree
-     # with groups as first level (default group is named `undefined`),
-     # types as second level (`function`, `variable` or `mixin`), items as third level.
-     # So: `groups > types > items`.
-     #
-        data.byGroupAndType = {
-            'undefined': {
-                'function': [ ... ],
-                'mixin': [ ... ],
-                'variable': [ ... ],
-            }
-        }
-     #
-     # For extra informations about the `data` interface, be sure to have a look at the wiki:
-     # https://github.com/SassDoc/sassdoc/wiki/SassDoc-Data-Interface
-     #}
 
-    {##
-     # Groups usually have quite unfriendly names, hence `undefined`. Fortunately, they can be aliased
-     # from the configuration file of the theme. Then, SassDoc processes it to generate a `groups` object.
-     # In this object, each group name is mapped to either an alias if specified in the configuration file
-     # or the same group name. For instance:
-     #
-        groups = {
-            'undefined': 'My Awesome Default Group',
-        }
-     #
-     # To retrieve the alias of a group, use `groups[group_name]`. In this case, `groups['undefined']` will
-     # return `My Awesome Default Group`.
-     #}
+     <main role="main">
 
-    {##
-     # To display our items, we need to:
-     # 1. Loop over `data.byGroupAndType` groups
-     # 2. Loop over types mapped to each group
-     # 3. Loop over items mapped to each type
-     #}
+        {# Include Sidebar #}
+        {% include "/includes/partials/sidebar.html.swig" %}
 
-    {# 1. Loop over the groups in `data.byGroupAndType` #}
-    {% for group_name, group in data.byGroupAndType %}
-    <section>
-        {# Retrieve group alias if any (else group name) #}
-        <h1>{{ groups[group_name] }}</h1>
+        <div id="content" tabindex="-1">
+           <h1>SassDoc for {{ project_title }}{% if package.version %} — v{{ package.version }}{% endif %}</h1>
 
-        {# 2. Loop over the types in the current group #}
-        {% for type, items in group %}
+           {# No item documented #}
+           {% if data.length == 0 %}
+             <h2>Seems like nothing has been documented yet!</h2>
+           {# Some items documented #}
 
-        {# If items to be displayed in type #}
-        {% if items.length > 0 %}
-        <section>
-            <h2>{{ type }}</h2>
+           {% else %}
+             {# Loop over the groups #}
+             {% for group_name, group in data.byGroupAndType %}
+                <h2 id="{{ group_name }}">{{ groups[group_name] }}</h2>
 
-            {# 3. Loop over the items in the current type #}
-            {% for item in items %}
+                {# Loop over the types #}
+                {% for type, items in group %}
 
-            {# At this point it is up to you to display whatever you want from your items. #}
-            <h3>{{ item.context.name }}</h3>
+                  {# If items to be displayed in type #}
+                  {% if items.length > 0 %}
+                    <div id="{{ group_name }}-{{ type }}">
+                      <h3>{{ (type + 's') }}</h3>
 
-            {% endfor %}
-        </section>
-        {% endif %}
+                      {# Loop over the items #}
+                      {% for item in items %}
+                        {% include "../includes/partials/item.html.swig" with context %}
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+             {% endfor %}
+           {% endif %}
+        </div>
+      </main>
 
-        {% endfor %}
-
-    </section>
-    {% endfor %}
-
-    {##
-     # If your theme needs some JavaScript, feel free to create a JS file in `assets/js/` folder
-     # and include it as follow:
-     #
-        <script src="assets/js/main.js"></script>
-     #
-     #}
+      {# Includefooter #}
+      {% include "/includes/partials/footer.html.swig" %}
 
     </body>
 </html>
