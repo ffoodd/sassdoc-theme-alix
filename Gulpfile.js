@@ -47,7 +47,7 @@ var dirs = {
 gulp.task('styles', function () {
   var browsers = ['last 2 version', '> 1%', 'ie 9'];
   var processors = [
-    require('autoprefixer-core')({ browsers: browsers }),
+    require('autoprefixer')({ browsers: browsers }),
   ];
 
   return gulp.src('./scss/**/*.scss')

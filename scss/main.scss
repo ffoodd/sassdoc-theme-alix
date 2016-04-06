@@ -1,22 +1,11 @@
 //
-// Sass utils
-//
-@import "utils/variables";
-@import "utils/functions";
-@import "utils/mixins";
-@import "utils/helpers";
+// Univeral box-sizing reset
+html {
+  box-sizing: border-box;
+}
 
-//
-// Vendors
-//
-@import "vendors/vendors";
-
-//
-// Base
-//
-@import "base/base";
-
-//
-// Partials
-//
-@import "partials/main";
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}

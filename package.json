@@ -1,7 +1,7 @@
 {
-  "name": "alix",
-  "description": "A fancy new SassDoc theme.",
-  "version": "0.1.0",
+  "name": "sassdoc-theme-alix",
+  "description": "SassDoc theme for a11y.css",
+  "version": "0.1.1",
   "keywords": [
     "sassdoc-theme"
   ],
