@@ -74,7 +74,7 @@
         </div>
       </main>
 
-      {# Includefooter #}
+      {# Include footer #}
       {% include "/includes/partials/footer.html.swig" %}
 
     </body>

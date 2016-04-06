@@ -35,9 +35,6 @@ var project = function () {
 var dirs = {
   scss: 'scss',
   css: 'assets/css',
-  img: 'assets/img',
-  svg: 'assets/svg',
-  js: 'assets/js',
   tpl: 'views',
   src: project('sass'),
   docs: project('sassdoc')

@@ -1,15 +1,14 @@
 {
   "generator-sassdoc-theme": {
-    "themeName": "alix",
+    "themeName": "sassdoc-theme-alix",
     "themeEngine": "swig",
     "author": {
       "name": "ffoodd"
     },
-    "themeDesc": "A fancy new SassDoc theme.",
-    "version": "0.1.0",
+    "themeDesc": "SassDoc theme for a11y.css",
+    "version": "0.1.2",
     "useExtras": true,
     "useSass": true,
-    "useSassUtils": true,
     "useTaskRunner": "gulp"
   }
 }
