@@ -23,8 +23,7 @@
     "extend": "^1.0.0",
     "sassdoc-extras": "^2.0.0",
     "swig": "^1.4.2",
-    "themeleon": "^3.0.0",
-    "themeleon-swig": "0.*"
+    "themeleon": "^3.0.0"
   },
   "engines": {
     "node": ">=0.10.0"

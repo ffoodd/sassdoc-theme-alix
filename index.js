@@ -6,6 +6,8 @@ extrasw.useFilter(swig, 'split');
 extrasw.useFilter(swig, 'trim');
 extrasw.useFilter(swig, 'groupby');
 
+swig.setFilter('in', (key, object) => key in object);
+
 /**
  * Themeleon template helper, using consolidate.js module.
  *
