@@ -1,6 +1,0 @@
-<footer role="contentinfo" class="main">
-  <div>
-    <p>® 2014 —&nbsp;2016 <strong>Gaël Poupard</strong></p>
-    <p>This project is distributed under license <a href="http://opensource.org/licenses/MIT" title="The MIT licence">MIT</a> and <a href="http://creativecommons.org/licenses/by/3.0/fr/" hreflang="fr" title="Explications de la licence">CC BY 3.0 FR</a>. <a class="end" href="#top">Back to top</a></p>
-  </div>
-</footer>

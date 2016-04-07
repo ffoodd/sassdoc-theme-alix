@@ -1,12 +1,5 @@
-var swig = new require('swig');
-var extrasw = require('swig-extras'); // Moar filters
+var nunjucks = require('nunjucks');
 
-extrasw.useFilter(swig, 'nl2br');
-extrasw.useFilter(swig, 'split');
-extrasw.useFilter(swig, 'trim');
-extrasw.useFilter(swig, 'groupby');
-
-swig.setFilter('in', (key, object) => key in object);
 
 /**
  * Themeleon template helper, using consolidate.js module.
@@ -41,17 +34,10 @@ var extras = require('sassdoc-extras');
  * The theme function describes the steps to render the theme.
  */
 var theme = themeleon(__dirname, function (t) {
-  /**
-   * Copy the assets folder from the theme's directory in the
-   * destination directory.
-   */
+
   t.copy('assets');
 
-  /**
-   * Render `views/index.swig` with the theme's context (`ctx` below)
-   * as `index.html` in the destination directory.
-   */
-  t.swig('views/index.swig', 'index.html');
+  t.nunjucks('views/index.html');
 });
 
 /**
