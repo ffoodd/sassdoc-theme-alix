@@ -1,13 +1,16 @@
-var nunjucks = require('nunjucks');
+var path = require('path');
 
-nunjucks.installJinjaCompat();
+var nunjucks = require('nunjucks');
+nunjucks.configure('views');
+
 /**
  * Themeleon template helper, using consolidate.js module.
  *
  * See <https://github.com/themeleon/themeleon>.
  * See <https://github.com/tj/consolidate.js>.
  */
-var themeleon = require('themeleon')().use('consolidate');
+var themeleon = require('themeleon')();
+themeleon.use('consolidate');
 
 /**
  * Utility function we will use to merge a default configuration
@@ -34,10 +37,8 @@ var extras = require('sassdoc-extras');
  * The theme function describes the steps to render the theme.
  */
 var theme = themeleon(__dirname, function (t) {
-
   t.copy('assets');
-
-  t.nunjucks("views/index.html");
+  t.nunjucks(path.resolve(__dirname, 'views/index.html'));
 });
 
 /**
