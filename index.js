@@ -1,6 +1,6 @@
 var nunjucks = require('nunjucks');
 
-
+nunjucks.installJinjaCompat();
 /**
  * Themeleon template helper, using consolidate.js module.
  *
@@ -34,10 +34,11 @@ var extras = require('sassdoc-extras');
  * The theme function describes the steps to render the theme.
  */
 var theme = themeleon(__dirname, function (t) {
+  var nunjucksEnv = nunjucks.configure("views", { noCache: true });
 
   t.copy('assets');
 
-  t.nunjucks('views/index.html');
+  t.nunjucks("index.html");
 });
 
 /**
