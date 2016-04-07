@@ -34,13 +34,10 @@ var extras = require('sassdoc-extras');
  * The theme function describes the steps to render the theme.
  */
 var theme = themeleon(__dirname, function (t) {
+
   t.copy('assets');
 
-  // Configure Nunjucks views basePath and options.
-  // See https://mozilla.github.io/nunjucks/api.html#configure
-  t.nunjucks.configure('views');
-  // Compile a Nunjucks view as `index.html` in destination directory
-  t.nunjucks('views/index.html', 'dist/index.html');
+  t.nunjucks("index.html");
 });
 
 /**
