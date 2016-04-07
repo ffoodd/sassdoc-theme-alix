@@ -40,7 +40,7 @@ var theme = themeleon(__dirname, function (t) {
   // See https://mozilla.github.io/nunjucks/api.html#configure
   nunjucks.configure('views');
   // Compile a Nunjucks view as `index.html` in destination directory
-  t.nunjucks('views/index.html', 'dist/index.html');
+  nunjucks.render('index.html');
 });
 
 /**
