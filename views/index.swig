@@ -33,13 +33,13 @@
       <a href="#content" class="skip">Skip to content</a>
 
       {# Include header #}
-      {% include "/includes/header.html.swig" %}
+      {% include "includes/header.html.swig" %}
 
 
      <main role="main">
 
         {# Include Sidebar #}
-        {% include "/includes/sidebar.html.swig" %}
+        {% include "includes/sidebar.html.swig" %}
 
         <div id="content" tabindex="-1">
            <h1>SassDoc for {{ project_title }}{% if package.version %} — v{{ package.version }}{% endif %}</h1>
@@ -64,7 +64,7 @@
 
                       {# Loop over the items #}
                       {% for item in items %}
-                        {% include "../includes/item.html.swig" with context %}
+                        {% include "includes/item.html.swig" with context %}
                       {% endfor %}
                     </div>
                   {% endif %}
@@ -75,7 +75,7 @@
       </main>
 
       {# Include footer #}
-      {% include "/includes/footer.html.swig" %}
+      {% include "includes/footer.html.swig" %}
 
     </body>
 </html>
