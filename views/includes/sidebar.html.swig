@@ -20,7 +20,7 @@
 
               {# If items to be displayed in type #}
               {% if items.length > 0 %}
-               <li>
+              <li>
                  <a href="#{{ group_name }}-{{ type }}">{{ (type + 's') }}</a>
 
                  {# Loop over the items #}
@@ -32,6 +32,7 @@
                     {% if loop.last %}</ol>{% endif %}
                  {% endfor %}
                </li>
+               {% endif %}
             {% if loop.last %}</ul>{% endif %}
           {% endfor %}
         </li>
