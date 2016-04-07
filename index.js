@@ -1,3 +1,11 @@
+var swig = new require('swig');
+var extrasw = require('swig-extras'); // Moar filters
+
+extrasw.useFilter(swig, 'nl2br');
+extrasw.useFilter(swig, 'split');
+extrasw.useFilter(swig, 'trim');
+extrasw.useFilter(swig, 'groupby');
+
 /**
  * Themeleon template helper, using consolidate.js module.
  *
@@ -68,7 +76,7 @@ module.exports = function (dest, ctx) {
     groups: {
       'undefined': 'General',
     },
-    'shortcutIcon': 'http://ffoodd.github.io/a11y.css/static/favicon.ico',
+    shortcutIcon: 'http://ffoodd.github.io/a11y.css/static/favicon.ico',
   };
 
   // Apply default values for groups and display.

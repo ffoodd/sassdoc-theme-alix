@@ -1,4 +1,4 @@
-<article id="{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}">
+<article id="{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}" class="item{% if item.alias %}  item--alias{% endif %}{% if 'deprecated'|in(item) %}  item--deprecated{% endif %}">
   {% include '../annotations/name.html.swig' %}
 
   {% include '../annotations/deprecated.html.swig' %}
