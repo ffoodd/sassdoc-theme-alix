@@ -38,9 +38,9 @@ var theme = themeleon(__dirname, function (t) {
 
   // Configure Nunjucks views basePath and options.
   // See https://mozilla.github.io/nunjucks/api.html#configure
-  nunjucks.configure('views');
+  t.nunjucks.configure('views');
   // Compile a Nunjucks view as `index.html` in destination directory
-  nunjucks.render('index.html');
+  t.nunjucks('views/index.html', 'dist/index.html');
 });
 
 /**
