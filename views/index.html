@@ -71,15 +71,15 @@
                     <h3>{{ (type + 's') }}</h3>
                     {% for item in items %}
                       <article id="{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}">
-                        {% include 'annotations/name.html' %}
+                        {% include './annotations/name.html' %}
 
-                        {% include 'annotations/deprecated.html' %}
+                        {% include './annotations/deprecated.html' %}
 
-                        {% include 'annotations/preview.html' %}
+                        {% include './annotations/preview.html' %}
 
                         {% if not item.alias %}
                         {% for annotation in display.annotations[item.context.type] %}
-                          {% set path = 'annotations/' + annotation + '.html' %}
+                          {% set path = './annotations/' + annotation + '.html' %}
                           {% include path %}
                         {% endfor %}
 
