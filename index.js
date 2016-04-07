@@ -37,7 +37,7 @@ var theme = themeleon(__dirname, function (t) {
 
   t.copy('assets');
 
-  t.nunjucks("index.html");
+  t.nunjucks("views/index.html");
 });
 
 /**
