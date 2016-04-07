@@ -70,7 +70,25 @@
                   <div id="{{ group_name }}-{{ type }}">
                     <h3>{{ (type + 's') }}</h3>
                     {% for item in items %}
-                      {% include 'item.html' %}
+                      <article id="{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}">
+                        {% include 'annotations/name.html' %}
+
+                        {% include 'annotations/deprecated.html' %}
+
+                        {% include 'annotations/preview.html' %}
+
+                        {% if not item.alias %}
+                        {% for annotation in display.annotations[item.context.type] %}
+                          {% set path = 'annotations/' + annotation + '.html' %}
+                          {% include path %}
+                        {% endfor %}
+
+                        {% else %}
+
+                        <p>Refer to <a href="#{{ item.context.type }}-{{ item.alias }}">{{ item.alias }}</a>.</p>
+
+                        {% endif %}
+                      </article>
                     {% endfor %}
                   </div>
                 {% endif %}
