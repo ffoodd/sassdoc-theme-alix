@@ -55,6 +55,12 @@ var theme = themeleon(__dirname, function (t) {
 module.exports = function (dest, ctx) {
   var def = {
     display: {
+      annotations: {
+        function: ["description", "parameter", "return", "example", "throw", "require", "usedby", "since", "see", "todo", "link", "author"],
+        mixin: ["description", "parameter", "content", "output", "example", "throw", "require", "usedby", "since", "see", "todo", "link", "author"],
+        placeholder: ["description", "example", "throw", "require", "usedby", "since", "see", "todo", "link", "author"],
+        variable: ["description", "type", "property", "require", "example", "usedby", "since", "see", "todo", "link", "author"]
+      },
       access: ['public', 'private'],
       alias: false,
       watermark: true,
@@ -62,7 +68,7 @@ module.exports = function (dest, ctx) {
     groups: {
       'undefined': 'General',
     },
-    'shortcutIcon': 'http://sass-lang.com/favicon.ico',
+    'shortcutIcon': 'http://ffoodd.github.io/a11y.css/static/favicon.ico',
   };
 
   // Apply default values for groups and display.
