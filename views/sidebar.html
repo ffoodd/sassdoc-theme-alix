@@ -5,32 +5,34 @@
   <nav role="navigation" aria-labelledby="toc-title" id="toc" tabindex="-1">
     <p class="h2-like" id="toc-title">Table of content</p>
 
-
       <ul>
         {% for group_name, group in data.byGroupAndType %}
         <li>
           <a href="#{{ group_name }}">{{ groups[group_name] }}</a>
 
           {% for type, items in group %}
+
             {% if loop.first %}<ul>{% endif %}
               {% if items.length > 0 %}
               <li>
                  <a href="#{{ group_name }}-{{ type }}">{{ (type + 's') }}</a>
                  {% for item in items %}
+
                     {% if loop.first %}<ol>{% endif %}
                       <li>
                         <a href="#{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}">{{ item.context.name }}</a>
                       </li>
                     {% if loop.last %}</ol>{% endif %}
+
                  {% endfor %}
                </li>
                {% endif %}
             {% if loop.last %}</ul>{% endif %}
+
           {% endfor %}
         </li>
         {% endfor %}
       </ul>
-
   </nav>
- </aside>
+</aside>
 {% endblock %}
