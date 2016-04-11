@@ -6,7 +6,6 @@ var fsp           = require('fs-promise');
 var sassdocExtras = require('sassdoc-extras');
 
 var env = nunjucks.configure(path.resolve(__dirname, 'views'));
-nunjucks.installJinjaCompat();
 
 
 var renderFile = function renderFile(dest, ctx) {

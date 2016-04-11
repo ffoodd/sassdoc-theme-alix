@@ -375,9 +375,9 @@ html {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  font-family: "Fira Sans", "Helvetica Neue", "Arial", "Nimbus Sans L", sans-serif;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-family: "Fira Sans", "Helvetica Neue", "Arial", "Nimbus Sans L", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.5; }
 
 *,
@@ -407,8 +407,8 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   /* 2 */
   margin: 0;
   min-height: 100vh;
@@ -433,19 +433,19 @@ main,
   /* 2 */
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
   /* 3 */
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   /* 4 */
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+  -ms-flex-pack: center;
+  justify-content: center; }
 
 main > *,
 .main > * {
@@ -467,8 +467,8 @@ main > * + *,
   /* 1 */
   -webkit-box-flex: 1;
   -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   /* 2 */ }
 
 .main > * + * {
@@ -498,8 +498,8 @@ header > a:focus {
 
 header nav {
   -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center; }
+  -ms-flex-item-align: center;
+  align-self: center; }
 
 header nav ul {
   display: -webkit-box;
@@ -507,8 +507,8 @@ header nav ul {
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   list-style: none;
   margin: 0;
   padding: 0; }
@@ -540,7 +540,7 @@ header nav a::before {
   transition: transform 300ms, opacity 300ms;
   transition: transform 300ms, opacity 300ms, -webkit-transform 300ms;
   -webkit-transform: translate3d(-50%, -50%, 0) scale(0.2);
-          transform: translate3d(-50%, -50%, 0) scale(0.2);
+  transform: translate3d(-50%, -50%, 0) scale(0.2);
   width: calc( 100% - .5em); }
 
 header nav a::after {
@@ -548,7 +548,7 @@ header nav a::after {
   border: 0;
   height: 2.5rem;
   -webkit-transform: translate3d(-50%, -50%, 0) scale(0.8);
-          transform: translate3d(-50%, -50%, 0) scale(0.8);
+  transform: translate3d(-50%, -50%, 0) scale(0.8);
   width: calc( 100% - 1em); }
 
 .errors::after,
@@ -567,11 +567,11 @@ header nav a::after {
 
 .warnings::after {
   -webkit-transform: translate3d(-50%, -50%, 0) scale(0.8) rotate(45deg);
-          transform: translate3d(-50%, -50%, 0) scale(0.8) rotate(45deg); }
+  transform: translate3d(-50%, -50%, 0) scale(0.8) rotate(45deg); }
 
 .warnings::before {
   -webkit-transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(45deg);
-          transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(45deg); }
+  transform: translate3d(-50%, -50%, 0) scale(0.2) rotate(45deg); }
 
 header nav a:hover::after,
 header nav a:hover::before,
@@ -587,7 +587,7 @@ header nav a:focus::before,
 .Advices .advices::before {
   opacity: .1;
   -webkit-transform: translate3d(-50%, -50%, 0) scale(1);
-          transform: translate3d(-50%, -50%, 0) scale(1); }
+  transform: translate3d(-50%, -50%, 0) scale(1); }
 
 .warnings:hover::after,
 .warnings:hover::before,
@@ -598,7 +598,7 @@ header nav a:focus::before,
   color: #ffce00;
   opacity: .3;
   -webkit-transform: translate3d(-50%, -50%, 0) scale(1) rotate(45deg);
-          transform: translate3d(-50%, -50%, 0) scale(1) rotate(45deg); }
+  transform: translate3d(-50%, -50%, 0) scale(1) rotate(45deg); }
 
 [class="Index "] .index {
   color: #039be5; }
@@ -626,8 +626,8 @@ header nav a:focus::before,
 aside {
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -635,11 +635,16 @@ aside {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
+  -ms-flex-direction: column;
+  flex-direction: column; }
 
 aside > * {
   width: 15rem; }
+
+aside ul,
+aside ol {
+  padding-left: 1em;
+}
 
 /**
  * Echelle typographique
@@ -670,49 +675,13 @@ h1 {
   line-height: 1;
   margin: 1em 0 .5em; }
 
-h2[id] {
-  background-color: inherit;
-  color: inherit;
-  counter-increment: titles;
-  display: inline-block;
-  max-width: 60rem;
-  padding: 0 0 0 1.25ch;
-  position: relative;
-  width: auto;
-  z-index: 1; }
-
-h2[id]:nth-of-type(10) ~ h2[id] {
-  padding: 0 0 0 2ch; }
-
-h2[id]::after,
-h2[id]::before {
-  background: #f3f0e0;
-  bottom: 0;
-  content: "";
-  left: -2rem;
-  position: absolute;
-  top: 0;
-  z-index: -2; }
-
-h2[id]::before {
-  background-color: #ece7d4;
-  background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%), -webkit-radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%);
-  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%), radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%);
-  background-position: 0 0, .25rem .25rem;
-  background-size: .5rem .5rem;
-  min-width: 15rem;
-  width: 67vw; }
-
-h2[id]::after {
-  background-color: inherit;
-  color: #e5dec8;
-  content: counter(titles) ".";
-  font-style: italic;
-  font-weight: 700;
-  left: -1rem;
-  right: -1rem;
-  text-indent: .5rem;
-  z-index: -1; }
+h1::first-letter,
+h2::first-letter,
+h3::first-letter,
+h4::first-letter,
+h5::first-letter {
+  text-transform: uppercase;
+}
 
 h2,
 .h2-like {
@@ -739,6 +708,50 @@ h6 {
   font-size: 1.0625em;
   line-height: 1.4118;
   margin: 2.8236em 0 1.4118em; }
+
+h4 {
+  background-color: inherit;
+  color: inherit;
+  counter-increment: titles;
+  display: inline-block;
+  max-width: 60rem;
+  padding: 0 0 0 1.25ch;
+  position: relative;
+  width: auto;
+  z-index: 1; }
+
+h4:nth-of-type(10) ~ h4 {
+  padding: 0 0 0 2ch; }
+
+h4::after,
+h4::before {
+  background: #f3f0e0;
+  bottom: 0;
+  content: "";
+  left: -2rem;
+  position: absolute;
+  top: 0;
+  z-index: -2; }
+
+h4::before {
+  background-color: #ece7d4;
+  background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%), -webkit-radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%), radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%);
+  background-position: 0 0, .25rem .25rem;
+  background-size: .5rem .5rem;
+  min-width: 15rem;
+  width: 67vw; }
+
+h4::after {
+  background-color: #fcf9e9;
+  color: #e5dec8;
+  content: counter(titles) ".";
+  font-style: italic;
+  font-weight: 700;
+  left: -1rem;
+  right: -1rem;
+  text-indent: .5rem;
+  z-index: -1; }
 
 aside legend {
   font-size: 1.25em;
@@ -818,8 +831,12 @@ pre {
   overflow-x: auto;
   text-align: left;
   text-shadow: 0 1px #fff;
-  white-space: pre;
+  white-space: nowrap;
   word-spacing: normal; }
+
+pre code {
+  white-space: pre;
+}
 
 p code {
   border: 1px solid;
@@ -853,8 +870,8 @@ a[href="#top"]::after {
 footer[class] {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end; }
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
 
 footer[class] > div {
   display: -webkit-box;
@@ -864,8 +881,8 @@ footer[class] > div {
   margin: 1.5em 0;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   width: 67vw; }
 
 footer p + p {
@@ -894,8 +911,8 @@ aside fieldset p {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin-top: 0; }
 
 [id="toc"] {
@@ -930,13 +947,12 @@ aside fieldset p {
   font-style: italic;
   padding: .25em .5em;
   -webkit-transform: translate3d(-1px, -1px, 0);
-          transform: translate3d(-1px, -1px, 0); }
+  transform: translate3d(-1px, -1px, 0); }
 
 .cssExample::before {
-  content: "CSS";
   margin-bottom: -1em;
   -webkit-transform: translate3d(calc( -1em - 1px), calc( -1em - 1px), 0);
-          transform: translate3d(calc( -1em - 1px), calc( -1em - 1px), 0); }
+  transform: translate3d(calc( -1em - 1px), calc( -1em - 1px), 0); }
 
 .codeBlock,
 .exampleOutput {
@@ -957,75 +973,19 @@ a[target$="blank"]::after {
   content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMBAMAAACkW0HUAAAAGFBMVEX///////////////////////////////8pK8DIAAAAAXRSTlMAQObYZgAAADZJREFUCJljKC8vYCsvZwBSDCCKgYHBHUKVu4Mo5gJ2IMUOFmBgLwZTTKlgCgjYUShxoAkgAADDIA8SMJqkyAAAAABJRU5ErkJggg==);
   padding-left: .5em; }
 
-#bookmarklet--link {
-  background-color: #911;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
-  border: 1px solid transparent;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 0.25em 0 -0.1em rgba(0, 0, 0, 0.2);
-  color: white;
-  display: block;
-  font-size: larger;
-  font-weight: 700;
-  margin: .5em auto;
-  outline: 1px solid rgba(0, 0, 0, 0.15) !important;
-  outline-offset: -1px !important;
-  padding: .5em 1em .55em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 1.25rem;
-  text-shadow: 0.05em 0.05em rgba(0, 0, 0, 0.2);
-  top: 0;
-  -webkit-transition: all 300ms;
-  transition: all 300ms; }
-
-#bookmarklet--link span {
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 20%, transparent 20%, transparent 80%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 20%, transparent 20%, transparent 80%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0.3) 100%);
-  background-position: 0 50%;
-  background-repeat: no-repeat;
-  background-size: 100% 1px;
-  display: block;
-  font-size: small;
-  font-weight: 400;
-  opacity: .8;
-  text-indent: 0; }
-
-#bookmarklet--link:hover,
-#bookmarklet--link:focus,
-#bookmarklet--link:active {
-  background-color: darkRed;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 0.25em 0 -0.1em rgba(0, 0, 0, 0.25); }
-
-#bookmarklet--link.done {
-  background-color: oliveDrab;
-  cursor: -webkit-grab;
-  cursor: grab; }
-
-#bookmarklet--link.done:hover,
-#bookmarklet--link.done:focus,
-#bookmarklet--link.done:active {
-  background-color: DarkOliveGreen; }
-
-#bookmarklet--link.done:active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing; }
-
-#bookmarklet--link::after {
-  display: inline-block;
-  font-size: small;
-  font-weight: 400;
-  opacity: .8;
-  text-indent: 0;
-  vertical-align: super;
-  width: 3ch; }
-
-#bookmarklet--link[href*="-en"]::after {
-  content: "en"; }
-
-#bookmarklet--link[href*="-fr"]::after {
-  content: "fr"; }
+/* -- @subsection Éléments masqués -----------------------
+ * @note Cette technique suit les recommandations de Yahoo!
+ * @see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+ */
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px !important;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
 
 .s, .nd {
   color: #07a; }
@@ -1058,8 +1018,8 @@ a[target$="blank"]::after {
   header nav ul {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     width: 90vw; }
   [id="top"] > * {
     min-width: 5.625rem;
@@ -1067,8 +1027,8 @@ a[target$="blank"]::after {
   [id="top"] > * + * {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     width: auto; } }
 
 @media only screen and (max-width: 57.5em) {
@@ -1079,14 +1039,14 @@ a[target$="blank"]::after {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
+    -ms-flex-direction: column;
+    flex-direction: column; }
   aside {
     width: auto;
     -webkit-box-ordinal-group: 1;
     -webkit-order: 0;
-        -ms-flex-order: 0;
-            order: 0; }
+    -ms-flex-order: 0;
+    order: 0; }
   aside .h2-like {
     margin-top: 1rem; }
   header nav,
@@ -1103,14 +1063,14 @@ a[target$="blank"]::after {
   .codeBlock.cssExample {
     margin-left: auto;
     margin-right: auto; }
-  h2[id]::before {
+  h4::before {
     width: 100vw; }
   aside {
     -webkit-box-align: start;
     -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-                -ms-grid-row-align: flex-start;
-            align-items: flex-start; }
+    -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;
+    align-items: flex-start; }
   aside > div {
     display: none; } }
 
@@ -1128,25 +1088,25 @@ a[target$="blank"]::after {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row; }
+    -ms-flex-direction: row;
+    flex-direction: row; }
   [id="toc"] {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1; }
-  h2[id] {
+    -ms-flex: 1;
+    flex: 1; }
+  h4 {
     display: block;
     left: -2.25rem;
     max-width: 42.25rem; }
-  h2[id]::before {
+  h4::before {
     left: calc( 50% - 50vw + 2.25rem); } }
 
 @media only screen and (max-width: 50em) {
-  h2[id],
+  h4,
   main > * + * > * {
     max-width: 90vw; }
-  h2[id] {
+  h4 {
     left: 1rem; }
   [id="toc"] {
     margin: 1.5em auto;
