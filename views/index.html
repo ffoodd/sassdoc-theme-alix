@@ -1,27 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      {% set project_title = package.title or package.name or 'a11y.css' %}
-      {% include 'includes/_head.html' %}
-    </head>
+  <head>
+    {% set project_title = package.title or package.name or 'a11y.css' %}
+    {% include 'includes/_head.html' %}
+  </head>
 
-    <body>
-      <a href="#toc" class="skip">Skip to table of content</a>
-      <a href="#content" class="skip">Skip to content</a>
+  <body>
+    <a href="#toc" class="skip">Skip to table of content</a>
+    <a href="#content" class="skip">Skip to content</a>
 
-      {% include 'includes/_header.html' %}
+    {% include 'includes/_header.html' %}
 
-      <main role="main">
-        {% block sidebar %}{% endblock %}
+    <main role="main">
+      <aside>
+        <nav role="navigation" aria-labelledby="toc-title" id="toc" tabindex="-1">
+          <p class="h2-like" id="toc-title">Table of content</p>
 
-        <div id="content" tabindex="-1">
-           <h1>SassDoc for {{ project_title }}{% if package.version %} — v{{ package.version }}{% endif %}</h1>
+          <ul>
+            {% for group_name, group in data.byGroupAndType %}
+            <li>
+              <a href="#{{ group_name }}">{{ groups[group_name] }}</a>
 
-          {% block docs %}{% endblock %}
+              {% for type, items in group %}
+
+              {% if loop.first %}<ul>{% endif %}
+              {% if items.length > 0 %}
+              <li>
+                <a href="#{{ group_name }}-{{ type }}">{{ (type + 's') }}</a>
+                {% for item in items %}
+
+                {% if loop.first %}<ol>{% endif %}
+                <li>
+                  <a href="#{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}">{{ item.context.name }}</a>
+                </li>
+                {% if loop.last %}</ol>{% endif %}
+
+                {% endfor %}
+              </li>
+              {% endif %}
+              {% if loop.last %}</ul>{% endif %}
+
+              {% endfor %}
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </aside>
+
+      <div id="content" tabindex="-1">
+        <h1>SassDoc for {{ project_title }}{% if package.version %} — v{{ package.version }}{% endif %}</h1>
+
+        {% for group_name, group in data.byGroupAndType %}
+        <h2 id="{{ group_name }}">{{ groups[group_name] }}</h2>
+
+        {% for type, items in group %}
+        {% if items.length > 0 %}
+        <div id="{{ group_name }}-{{ type }}">
+
+          <h3>{{ (type + 's') }}</h3>
+
+          {% for item in items %}
+          {% include 'includes/_item.html' %}
+          {% endfor %}
         </div>
-      </main>
+        {% endif %}
+        {% endfor %}
 
-      {% include 'includes/_footer.html' %}
+        {% endfor %}
+      </div>
+    </main>
 
-    </body>
+    {% include 'includes/_footer.html' %}
+
+  </body>
 </html>

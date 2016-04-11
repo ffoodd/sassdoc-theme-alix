@@ -1,9 +1,12 @@
 var def = require('./default-configuration.json');
+
 var path          = require('path');
 var nunjucks      = require('nunjucks');
 var fsp           = require('fs-promise');
 var sassdocExtras = require('sassdoc-extras');
+
 var env = nunjucks.configure(path.resolve(__dirname, 'views'));
+nunjucks.installJinjaCompat();
 
 
 var renderFile = function renderFile(dest, ctx) {

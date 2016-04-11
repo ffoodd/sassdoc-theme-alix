@@ -1,0 +1,33 @@
+<article id="{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}">
+  <h4>
+    {% include 'includes/annotations/_name.html' %}
+  </h4>
+
+  <div class="codeBlock cssExample">
+    <div class="highlight language-scss">
+      <pre>
+        {% include 'includes/annotations/_code.html' %}
+      </pre>
+      {% include 'includes/annotations/_view-source.html' %}
+    </div>
+  </div>
+
+  {% include 'includes/annotations/_description.html' %}
+
+  {% include 'includes/annotations/_type.html' %}
+
+  {% include 'includes/annotations/_map-structure.html' %}
+
+  {% include 'includes/annotations/_parameter.html' %}
+
+  {% include 'includes/annotations/_output.html' %}
+
+  {% include 'includes/annotations/_example.html' %}
+
+  {% include 'includes/annotations/_throw.html' %}
+
+  {% include 'includes/annotations/_used-by.html' %}
+
+  {% include 'includes/annotations/_require.html' %}
+
+</article>

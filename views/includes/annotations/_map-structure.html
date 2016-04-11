@@ -1,0 +1,35 @@
+{% if item.property.length > 0 %}
+
+  <h5>Map structure</h5>
+
+  <table>
+    <thead>
+    <tr>
+      <th scope="col"><span class="visually-hidden">{{ item.type }} key </span>Name</th>
+      <th scope="col"><span class="visually-hidden">{{ item.type }} key </span>Description</th>
+      <th scope="col"><span class="visually-hidden">{{ item.type }} key </span>Type</th>
+      <th scope="col"><span class="visually-hidden">{{ item.type }} key </span>Value</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      {% for prop in item.property %}
+        <tr>
+          <th scope="row"><code>{{ prop.name }}</code></th>
+          <td>{{ prop.description | default('&mdash;<span class="visually-hidden"> none</span>') | safe }}</td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            {% if not prop.default %}
+              &mdash;<span class="visually-hidden"> none</span>
+            {% else %}
+              <code>{{ prop.default }}</code>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endif %}

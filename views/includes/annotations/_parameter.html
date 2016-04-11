@@ -1,0 +1,33 @@
+{% if item.parameter.length > 0 %}
+
+  <h5>Parameters</h5>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden">{{ item.type }} parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden">{{ item.type }} parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden">{{ item.type }} parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden">{{ item.type }} parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for parameter in item.parameter %}
+          <tr>
+            <th scope="row"><code>${{ parameter.name }}</code></th>
+            <td>{{ parameter.description|default('&mdash;<span class="visually-hidden"> none</span>')|safe }}</td>
+            <td>
+              <code>{% if parameter.type == '*' %}Any{% else %}{{ parameter.type }}{% endif %}</code>
+            </td>
+            <td>
+              {% if not parameter.default %}
+                &mdash;<span class="visually-hidden"> none</span>
+              {% else %}
+                <code>{{ parameter.default }}</code>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+{% endif %}

@@ -1,0 +1,14 @@
+{% if item.example.length > 0 %}
+  <h5>Example</h5>
+
+  {% for example in item.example %}
+    {% if example.description %}
+       <p>{{ example.description|safe }}</p>
+    {% endif %}
+    <div class="codeBlock cssExample">
+        <div class="highlight language-{{ example.type }}">
+            <pre><code>{{ example.code|escape|safe }}</code></pre>
+        </div>
+    </div>
+  {% endfor %}
+{% endif %}

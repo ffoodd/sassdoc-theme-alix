@@ -1,7 +1,7 @@
 {% if item.throw.length > 0 %}
-  <h5 class="item__sub-heading">Throws</h5>
+  <h5>Throws</h5>
 
-  <ul class="list-unstyled">
+  <ul>
     {% for _throw in item.throw %}
       <li>{{ _throw|safe }}</li>
     {% endfor %}
