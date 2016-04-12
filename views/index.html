@@ -19,14 +19,14 @@
           <ul>
             {% for group_name, group in data.byGroupAndType %}
             <li>
-              <a href="#{{ group_name }}">{{ groups[group_name] }}</a>
+              <a href="#{{ group_name }}" class="h3-like">{{ groups[group_name] }}</a>
 
               {% for type, items in group %}
 
               {% if loop.first %}<ul>{% endif %}
               {% if items.length > 0 %}
               <li>
-                <a href="#{{ group_name }}-{{ type }}">{{ (type + 's') }}</a>
+                <a href="#{{ group_name }}-{{ type }}" class="h4-like">{{ (type + 's') }}</a>
                 {% for item in items %}
 
                 {% if loop.first %}<ol>{% endif %}

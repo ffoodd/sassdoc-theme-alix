@@ -266,7 +266,6 @@ aside > * {
 
 aside ul,
 aside ol {
-  background: rgba( 255, 255, 255, .25 );
   padding-left: 1em;
 }
 
@@ -274,7 +273,7 @@ aside ul {
   list-style: none;
 }
 
-[id="toc"] > ul > li {
+[id="toc"] > ul > li > a {
   font-weight: 700;
 }
 
@@ -322,7 +321,7 @@ h2::first-letter,
 h3::first-letter,
 h4::first-letter,
 h5::first-letter,
-aside ul > :first-child::first-letter {
+aside ul > li::first-letter {
   text-transform: uppercase;
 }
 
@@ -333,13 +332,15 @@ h2,
   line-height: 1.5;
 }
 
-h3 {
+h3,
+.h3-like {
   margin: 2em 0 1em;
   font-size: 1.5em;
   line-height: 1;
 }
 
-h4 {
+h4,
+.h4-like {
   margin: 2.4em 0 1.2em;
   font-size: 1.25em;
   line-height: 1.2;
@@ -371,6 +372,11 @@ h4 {
 
 h4 a {
   text-decoration: none;
+}
+
+h4 svg {
+  height: 1em;
+  width: .92em;
 }
 
 h4:nth-of-type(10) ~ h4 {
@@ -494,35 +500,28 @@ code {
   line-height: 1;
 }
 
-/**
- * 1. @note Gestion des tableaux scrollables
- * @author David Bushell
- * @see http://dbushell.com/2016/03/04/css-only-responsive-tables/
- * @see http://codepen.io/dbushell/full/8e6a1ee85418f3c5abe839647dbcdec5/
- */
 table {
   border-collapse: collapse;
-  caption-side: top;
-  display: inline-block; /* 1 */
+  display: table;
   margin-bottom: 1.5em;
   max-width: 100%;
-  overflow-x: auto;      /* 1 */
+  table-layout: fixed;
   text-align: left;
-  vertical-align: top;
-  white-space: nowrap;   /* 1 */
+  width: 100%;
 }
 
 th,
 td {
-  padding: .5em .75rem;
+  padding: .75em 1.4rem;
   text-align: left;
+  vertical-align: top;
 }
 
 thead th,
 thead td,
 tbody th,
 tbody td {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #e5dec8;
 }
 
 td {
@@ -530,97 +529,17 @@ td {
   max-width: 100%;
 }
 
-table > caption:first-child {
-  font-style: italic;
-  margin: 0;
-  padding: 2.5em 1em;
-}
-
 tbody {
-  border: 1px solid #fff;
-
-  tr > * + * {
-    border-left: 1px solid #fff;
-  }
+  border: 1px solid #e5dec8;
 }
 
-@media only screen and (max-width: 48em) {
-  table {
-    background:
-      radial-gradient(
-          ellipse at left,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0) 75%) 0 center,
-      radial-gradient(
-          ellipse at right,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0) 75%) 100% center;
-    background-attachment: scroll, scroll;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-size: .625em 100%, .625em 100%;
-    border: 1px solid #fff;
-    max-width: 100% !important;        /* 1 */
-    -webkit-overflow-scrolling: touch; /* 1 */
-  }
-
-  td:first-child,
-  th:first-child {
-    background-image: linear-gradient( to right, #fff 50%, rgba(255, 255, 255, 0) 100% );
-    background-repeat: no-repeat;
-    background-size: 1.25em 100%;
-  }
-
-  td:last-child,
-  th:last-child {
-    background-image: linear-gradient( to left, #fff 50%, rgba(255, 255, 255, 0) 100% );
-    background-repeat: no-repeat;
-    background-position: 100% 0;
-    background-size: 1.25em 100%;
-  }
-
-  caption {
-    background-image:
-      linear-gradient(
-          to left,
-          #fff 50%,
-          rgba(255, 255, 255, 0) 100%
-      ),
-      linear-gradient(
-          to right,
-          #fff 50%,
-          rgba(255, 255, 255, 0) 100%
-      );
-    background-repeat: no-repeat;
-    background-position: 100% 0, 0 0;
-    background-size: 1.25em 100%, 1.25em 100%;
-    border-bottom: 1px solid #fff;
-  }
+tbody tr > * + * {
+  border-left: 1px solid #e5dec8;
 }
 
-@media only screen and (min-width: 48em) {
-  table {
-    caption-side: bottom;
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-  }
-
-  th,
-  td {
-    padding: .75em 1.4rem;
-  }
-
-  tbody th,
-  tbody td {
-    background: rgba( 255, 255, 255, .5 );
-  }
-
-  tbody tr:nth-child(odd) {
-    background: #fff;
-  }
+tbody tr:nth-child(odd) {
+  background: #fffef9;
 }
-
 
 pre {
   border: 0;

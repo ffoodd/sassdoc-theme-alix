@@ -30,7 +30,7 @@ module.exports = function (dest, ctx) {
   sassdocExtras(ctx, 'description', 'markdown', 'display', 'groupName', 'shortcutIcon', 'sort', 'resolveVariables');
   ctx.data.byGroupAndType = sassdocExtras.byGroupAndType(ctx.data);
   var initialAssetPath = path.resolve(__dirname, 'assets');
-  var finalAssetPath   = path.resolve(dest, 'assets');
+  var finalAssetPath   = path.resolve(dest, '');
   var destination      = path.resolve(dest, 'index.html');
   return Promise.all([
     fsp.copy(initialAssetPath, finalAssetPath),
