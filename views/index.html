@@ -48,7 +48,7 @@
       </aside>
 
       <div id="content">
-        <h1>SassDoc for {{ project_title }}{% if package.version %} — v{{ package.version }}{% endif %}</h1>
+        <h1><abbr title="Application Programming Interface">API</abbr> Doc</h1>
 
         {% for group_name, group in data.byGroupAndType %}
         <h2 id="{{ group_name }}">{{ groups[group_name] }}</h2>
