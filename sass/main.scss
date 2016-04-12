@@ -148,7 +148,6 @@ header nav a {
  * @see http://tympanus.net/codrops/2013/08/06/creative-link-effects/
  * @see http://tympanus.net/Development/CreativeLinkEffects/#cl-effect-12
  */
-
 header nav a::after,
 header nav a::before {
   content: "";
@@ -202,15 +201,7 @@ header nav a::after {
 header nav a:hover::after,
 header nav a:hover::before,
 header nav a:focus::after,
-header nav a:focus::before,
-[class="Index "] .index::after,
-[class="Index "] .index::before,
-.Errors .errors::after,
-.Errors .errors::before,
-.Obsolete .obsolete::after,
-.Obsolete .obsolete::before,
-.Advices .advices::after,
-.Advices .advices::before {
+header nav a:focus::before {
   opacity: .1;
   transform: translate3d(-50%,-50%,0) scale(1);
 }
@@ -218,39 +209,29 @@ header nav a:focus::before,
 .warnings:hover::after,
 .warnings:hover::before,
 .warnings:focus::after,
-.warnings:focus::before,
-.Warnings .warnings::after,
-.Warnings .warnings::before {
+.warnings:focus::before {
   color: #ffce00;
   opacity: .3;
   transform: translate3d(-50%,-50%,0) scale(1) rotate(45deg);
 }
 
-[class="Index "] .index {
-  color: #039be5;
-}
-
 .errors:hover,
-.errors:focus,
-.Errors .errors {
+.errors:focus {
   color: #911;
 }
 
 .warnings:hover,
-.warnings:focus,
-.Warnings .warnings {
+.warnings:focus {
   color: #000;
 }
 
 .obsolete:hover,
-.obsolete:focus,
-.Obsolete .obsolete {
+.obsolete:focus {
   color: #4169e1;
 }
 
 .advices:hover,
-.advices:focus,
-.Advices .advices {
+.advices:focus {
   color: #6b8e23;
 }
 
@@ -271,6 +252,10 @@ aside ol {
 
 aside ul {
   list-style: none;
+}
+
+aside ul > li a {
+  display: block;
 }
 
 [id="toc"] > ul > li > a {
@@ -321,7 +306,7 @@ h2::first-letter,
 h3::first-letter,
 h4::first-letter,
 h5::first-letter,
-aside ul > li::first-letter {
+aside ul > li a::first-letter {
   text-transform: uppercase;
 }
 
@@ -379,7 +364,10 @@ h4 svg {
   width: .875rem;
 }
 
-h4:nth-of-type(10) ~ h4 {
+[id="undefined-mixin"] h4,
+[id="undefined-variable"] h4,
+[id="messages-mixin-quarantine-before"] h4,
+[id="messages-mixin-quarantine-before"] ~ article h4 {
   padding: 0 0 0 2ch;
 }
 
@@ -497,6 +485,7 @@ code {
 table {
   border-collapse: collapse;
   margin-bottom: 1.5em;
+  width: 100%;
 }
 
 th,
@@ -550,6 +539,7 @@ pre code {
 
 p code,
 td code,
+th code,
 li code {
   display: inline-block;
   padding: .1em;
@@ -665,7 +655,7 @@ aside fieldset p {
   transform: translate3d(-1px,-1px,0);
 }
 
-.codeExample::before {
+.cssExample::before {
   content: attr( data-description );
 }
 
