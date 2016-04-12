@@ -13,7 +13,7 @@
 
     <main role="main">
       <aside>
-        <nav role="navigation" aria-labelledby="toc-title" id="toc" tabindex="-1">
+        <nav role="navigation" aria-labelledby="toc-title" id="toc">
           <p class="h2-like" id="toc-title">Table of content</p>
 
           <ul>
@@ -47,7 +47,7 @@
         </nav>
       </aside>
 
-      <div id="content" tabindex="-1">
+      <div id="content">
         <h1>SassDoc for {{ project_title }}{% if package.version %} — v{{ package.version }}{% endif %}</h1>
 
         {% for group_name, group in data.byGroupAndType %}
