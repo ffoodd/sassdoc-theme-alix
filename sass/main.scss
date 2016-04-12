@@ -173,21 +173,29 @@ header nav a::after {
   transform: translate3d(-50%,-50%,0) scale(0.8);
 }
 
-.errors::after,
-.errors::before {
-  border-radius: 50%;
-}
-
-.errors::before,
 .warnings::before,
 .obsolete::before {
   width: 3rem;
 }
 
-.errors::after,
 .warnings::after,
 .obsolete::after {
   width: 2.5rem;
+}
+
+.errors::before {
+  height: 4rem;
+  width: 4rem;
+}
+
+.errors::after {
+  height: 3.25rem;
+  width: 3.25rem;
+}
+
+.errors::after,
+.errors::before {
+  border-radius: 50%;
 }
 
 .warnings::after {
@@ -201,7 +209,9 @@ header nav a::after {
 header nav a:hover::after,
 header nav a:hover::before,
 header nav a:focus::after,
-header nav a:focus::before {
+header nav a:focus::before,
+.SassDoc .sassdoc::after,
+.SassDoc .sassdoc::before {
   opacity: .1;
   transform: translate3d(-50%,-50%,0) scale(1);
 }
