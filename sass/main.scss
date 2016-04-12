@@ -479,12 +479,6 @@ aside button span {
   background-size: 100% 1px;
 }
 
-li p,
-li ul {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 textarea,
 table,
 td,
@@ -650,15 +644,17 @@ aside fieldset p {
 }
 
 .codeExample,
-.codeBlock.cssExample {
+.codeBlock.cssExample,
+.codeBlock.scssSource {
   margin: 1em 0;
   border: 1px solid #e5dec8;
   border-radius: 4px;
 }
 
 .cssExample::before,
+.scssSource::before,
 .codeExample::before {
-  content: "Example";
+  content: "Source";
   display: inline-block;
   padding: .25em .5em;
   border: 1px solid;
@@ -669,6 +665,11 @@ aside fieldset p {
   transform: translate3d(-1px,-1px,0);
 }
 
+.codeExample::before {
+  content: attr( data-description );
+}
+
+.scssSource::before,
 .cssExample::before {
   margin-bottom: -1em;
   transform: translate3d(calc( -1em - 1px), calc( -1em - 1px) ,0);
