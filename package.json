@@ -2,7 +2,7 @@
   "name": "sassdoc-theme-alix",
   "title": "alix",
   "description": "SassDoc theme for a11y.css",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "keywords": [
     "sassdoc-theme"
   ],
