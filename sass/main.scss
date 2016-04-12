@@ -502,23 +502,20 @@ code {
 
 table {
   border-collapse: collapse;
-  display: table;
   margin-bottom: 1.5em;
-  max-width: 100%;
-  table-layout: fixed;
-  text-align: left;
-  width: 100%;
 }
 
 th,
 td {
-  padding: .75em 1.4rem;
+  padding: .75em;
   text-align: left;
   vertical-align: top;
 }
 
-thead th,
-thead td,
+thead th {
+  border-bottom: 2px solid #e5dec8;
+}
+
 tbody th,
 tbody td {
   border-bottom: 1px solid #e5dec8;
@@ -531,18 +528,6 @@ td {
 
 td p {
   margin: 0;
-}
-
-tbody {
-  border: 1px solid #e5dec8;
-}
-
-tbody tr > * + * {
-  border-left: 1px solid #e5dec8;
-}
-
-tbody tr:nth-child(odd) {
-  background: #fffef9;
 }
 
 pre {
@@ -699,6 +684,13 @@ aside fieldset p {
   border-radius: 0 0 4px 4px;
   border-top: 1px solid #e5dec8;
   background: #fffef9;
+}
+
+.viewSource {
+  background: #fff;
+  margin: 1em -1em -1em;
+  padding: 1em;
+  text-align: right;
 }
 
 .codeExample {
