@@ -590,6 +590,7 @@ a[href="#top"]::after {
 
 footer[class] {
   justify-content: flex-end;
+  position: relative;
 }
 
 footer[class] > div {
@@ -827,7 +828,8 @@ a[target$="blank"]::after {
   top: 0;
 }
 
-.builtWith a {
+.builtWith a,
+.builtWith a * {
   display: inline-block;
   vertical-align: middle;
 }
