@@ -32,6 +32,8 @@
       $active.removeAttribute("class");
     }
 
-    $link.classList.add("active-test");
+    if( $link.tagName.toLowerCase() === "a" ) {
+      $link.classList.add("active-test");
+    }
   });
 </script>
