@@ -814,6 +814,11 @@ a[target$="blank"]::after {
   opacity: 1;
 }
 
+.builtWith {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 @media only screen and (max-width:67.5em) {
   header nav ul {
     justify-content: space-between;
