@@ -844,12 +844,13 @@ a[target$="blank"]::after {
   }
 
   [id="top"] > * {
-    width: auto;
+    display: inline-block;
     min-width: 5.625rem;
+    width: auto;
   }
 
   [id="top"] > * + * {
-    flex: 1;
+    flex: 1 0 auto;
     width: auto;
   }
 }
