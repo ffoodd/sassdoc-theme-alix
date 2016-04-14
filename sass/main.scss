@@ -85,12 +85,14 @@ main > *,
  **
  * 1. IE fix
  * 2. occupe la largeur restante
+ * @bugfix On n'utilise pas flex:1;
+ * @affected IE 10 et IE 11
+ * @see https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
  */
-
 main > * + *,
 .main > * + * {
-  display: block;
-  flex: 1;
+  display: block; /* 1 */
+  flex: 1 0 auto; /* 2 */
 }
 
 .main > * + * {
@@ -837,7 +839,7 @@ a[target$="blank"]::after {
 @media only screen and (max-width:67.5em) {
   header nav ul {
     justify-content: space-between;
-    width: 90vw;
+    max-width: 90vw;
   }
 
   [id="top"] > * {
