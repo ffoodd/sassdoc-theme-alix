@@ -597,6 +597,7 @@ footer[class] {
 
 footer[class] > div {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   width: 67vw;
   margin: 1.5em 0;
