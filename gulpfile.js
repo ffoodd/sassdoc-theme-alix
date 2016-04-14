@@ -8,7 +8,7 @@ var gulp         = require('gulp'),
 
 // Paths
 var source      = './sass/**/*.scss',
-    destination = './assets/css';
+    destination = './assets/static';
 
 // Autoprefixer config
 var autoprefixerOptions = {
