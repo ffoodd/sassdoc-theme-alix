@@ -15,35 +15,5 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="js/prism.js"></script>
-<script>
-  function activeAnchor() {
-    var $currentHref = document.getElementById("toc").getElementsByTagName("a");
-    var $length = $currentHref.length;
-    var i = 0;
-    for(;i<$length;i++) {
-      if(document.location.href.indexOf($currentHref[i].href)>=0) {
-        $currentHref[i].classList.add("active-test");
-      }
-    }
-  }
-
-  if (document.readyState != "loading") {
-    activeAnchor();
-  } else {
-    document.addEventListener("DOMContentLoaded", activeAnchor);
-  }
-
-  document.getElementById("toc").addEventListener("click", function(e) {
-    var $link = e.target;
-    var $active = document.querySelector(".active-test");
-
-    if( $active ) {
-      $active.removeAttribute("class");
-    }
-
-    if( $link.tagName.toLowerCase() === "a" ) {
-      $link.classList.add("active-test");
-    }
-  });
-</script>
+<script type="text/javascript" src="static/js/prism.js" async></script>
+<script src="static/js/docs.js" async></script>

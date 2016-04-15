@@ -1,28 +1,8 @@
-{% if item.context.type == "placeholder" %}
-  <code>%{{ item.context.name }} { {{ item.context.code }} }</code>
-
-{% elif item.context.type == "variable" %}
-  <code>${{ item.context.name }}: {{ item.context.value }}{% if item.context.scope != "private" %} !{{ item.context.scope }}{% endif %};</code>
-
-{% else %}
-  {% set parameters_string = '' %}
-  {% for parameter in item.parameter %}
-    {% set value = '$' + parameter.name %}
-
-    {% if parameter.default %}
-      {% set value = value + ': ' + parameter.default %}
-    {% endif %}
-
-    {% if parameter.type|lower == "arglist" %}
-      {% set value = value + '...' %}
-    {% endif %}
-
-    {% if loop.first %}
-      {% set parameters_string = value %}
-    {% else %}
-      {% set parameters_string = parameters_string + ', ' + value %}
-    {% endif %}
-  {% endfor %}
-  <code>@{{ item.context.type }} {{ item.context.name }}({{ parameters_string }}) { {{ item.context.code }} }</code>
-
-{% endif %}
+{% if item.context.type == "placeholder" %}<code>%{{ item.context.name }} { {{ item.context.code }} }</code>
+{% elif item.context.type == "variable" %}<code>${{ item.context.name }}: {{ item.context.value }}{% if item.context.scope != "private" %} !{{ item.context.scope }}{% endif %};</code>
+{% else %}{% set parameters_string = '' %}
+{% for parameter in item.parameter %}{% set value = '$' + parameter.name %}
+{% if parameter.default %}{% set value = value + ': ' + parameter.default %}{% endif %}
+{% if parameter.type|lower == "arglist" %}{% set value = value + '...' %}{% endif %}
+{% if loop.first %}{% set parameters_string = value %}{% else %}{% set parameters_string = parameters_string + ', ' + value %}{% endif %}
+{% endfor %}<code>@{{ item.context.type }} {{ item.context.name }}({{ parameters_string }}) { {{ item.context.code }} }</code>{% endif %}
