@@ -5,7 +5,7 @@
 
     <div class="codeBlock cssExample" data-description="{% if example.description %}{{ example.description|striptags|safe }}{% endif %}">
         <div class="language-{{ example.type }}">
-            <pre><code>{{ example.code|escape|safe }}</code></pre>
+            <pre><code class="language-{{ example.type }}">{{ example.code|escape|safe }}</code></pre>
         </div>
     </div>
   {% endfor %}
