@@ -666,14 +666,14 @@ aside fieldset p {
 .cssExample::before,
 .scssSource::before,
 .codeExample::before {
+  background: #fcf9e9;
+  border: 1px solid #e5dec8;
+  border-radius: 4px 0 4px 0;
+  color: #7b6e50;
   content: "Source";
   display: inline-block;
-  padding: .25em .5em;
-  border: 1px solid;
-  border-radius: 4px 0 4px 0;
   font-style: italic;
-  color: #e5dec8;
-  background: #fff;
+  padding: .25em .5em;
   transform: translate3d(-1px,-1px,0);
 }
 
