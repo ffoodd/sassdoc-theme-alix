@@ -30,7 +30,7 @@
   "devDependencies": {
     "fs-extra": "^7.0.1",
     "fs-promise": "^2.0.3",
-    "gulp": "~3.9.0",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "latest",
     "gulp-plumber": "latest",
     "gulp-sass": "^4.0.2",
