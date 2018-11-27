@@ -1,5 +1,5 @@
 function getFileName () {
-  var base = 'https://rawgit.com/ffoodd/a11y.css/master/css/';
+  var base = 'https://ffoodd.github.io/a11y.css/css/';
   var prefix = 'a11y-';
   var lang = document.getElementById('language').value || 'en';
   var level = document.getElementById('minimum-level').value || 'advice';
@@ -17,13 +17,13 @@ function getFileName () {
 function getBookmarkletContent () {
   return [
     'javascript:',
-    '(function(){',
-    'a11ycss=document.createElement("LINK");',
-    'a11ycss.href="' + getFileName() + '";',
-    'a11ycss.rel="stylesheet";',
-    'a11ycss.media="(min-width: 800px)";',
-    'document.body.appendChild(a11ycss);',
-    '})();'
+      '(function(){',
+        'a11ycss=document.createElement("LINK");',
+        'a11ycss.href="' + getFileName() + '";',
+        'a11ycss.rel="stylesheet";',
+        'a11ycss.media="all";',
+        'document.body.appendChild(a11ycss);',
+      '})();'
   ].join('');
 }
 
